@@ -1,21 +1,21 @@
 <?php
-// function connect($query)
-// {
-//     $connection = new PDO("mysql:host=localhost;dbname=assignment;charset=utf8", "root", "");
-//     $stmt = $connection->prepare($query);
-//     $stmt->execute();
-//     return $stmt;
-// }
-// function getAll($query)
-// {
-//     $result = connect($query)->fetchAll();
-//     return $result;
-// }
-// function getOne($query)
-// {
-//     $result = connect($query)->fetch();
-//     return $result;
-// }
+function connect($query)
+{
+    $connection = new PDO("mysql:host=localhost;dbname=data-bee-blog;charset=utf8", "root", "");
+    $stmt = $connection->prepare($query);
+    $stmt->execute();
+    return $stmt;
+}
+function getAll($query)
+{
+    $result = connect($query)->fetchAll();
+    return $result;
+}
+function getOne($query)
+{
+    $result = connect($query)->fetch();
+    return $result;
+}
 ?>
 
 <?php
