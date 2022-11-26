@@ -12,7 +12,7 @@ foreach ($users as $value) {
                 $_SESSION["id"] = $value["id"];
                 $_SESSION["userName"] = $value["userName"];
                 $_SESSION["avatar"] = $value["avatar"];
-                header("location:./site/index.php");
+                header("location:./site/header.php");
             }
         } else {
             echo "Tài khoản không đúng";
@@ -39,8 +39,7 @@ foreach ($users as $value) {
     <section>
         <!--Bắt Đầu Phần Hình Ảnh-->
         <div class="img-bg">
-            <img src="https://niemvuilaptrinh.ams3.cdn.digitaloceanspaces.com/tao_trang_dang_nhap/hinh_anh_minh_hoa.jpg"
-                alt="Hình Ảnh Minh Họa">
+            <img src="./public/image/a-6498-1668903333.jpg" alt="Hình Ảnh Minh Họa">
         </div>
         <!--Kết Thúc Phần Hình Ảnh-->
         <!--Bắt Đầu Phần Nội Dung-->

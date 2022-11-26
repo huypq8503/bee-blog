@@ -29,7 +29,7 @@ if (empty($_SESSION["id"])) {
         <header>
             <div class="image-text">
                 <span class="image">
-                    <a href="./index.php"> <img src="../public/image/logo-bee-blog.png" alt=""></a>
+                    <a href="../site/header.php"> <img src="../public/image/logo-bee-blog.png" alt=""></a>
                 </span>
 
                 <div class="text logo-text">
@@ -63,7 +63,7 @@ if (empty($_SESSION["id"])) {
                             <span class="text nav-text">Manager post</span>
                         </a>
                     </li>
-                    <li class="nav-link">
+                    <!-- <li class="nav-link">
                         <a href="./podcast-manager.php">
                             <i class='bx bx-headphone icon'></i>
                             <span class="text nav-text">Add new podcast</span>
@@ -74,7 +74,7 @@ if (empty($_SESSION["id"])) {
                             <i class='bx bx-headphone icon'></i>
                             <span class="text nav-text">Manager podcast</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="nav-link">
                         <a href="./add-new-category.php">
                             <i class='bx bx-edit icon'></i>
@@ -107,13 +107,13 @@ if (empty($_SESSION["id"])) {
                             <span class="text nav-text">Manager comment</span>
                         </a>
                     </li>
-
+                    <!-- 
                     <li class="nav-link">
                         <a href="./statistical-show.ph">
                             <i class='bx bx-bar-chart-alt-2 icon'></i>
                             <span class="text nav-text">Thống kê</span>
                         </a>
-                    </li>
+                    </li> -->
                     <div class="bottom-content">
                         <li class="mode">
                             <div class="sun-moon">

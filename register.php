@@ -18,7 +18,7 @@
     <section>
         <!--Bắt Đầu Phần Hình Ảnh-->
         <div class="img-bg">
-            <img src="https://niemvuilaptrinh.ams3.cdn.digitaloceanspaces.com/tao_trang_dang_nhap/hinh_anh_minh_hoa.jpg"
+            <img src="https://vcdn1-thethao.vnecdn.net/2022/11/20/a-6498-1668903333.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=hlY6wHQOx_XlwxW4xSKwAQ"
                 alt="Hình Ảnh Minh Họa">
         </div>
         <!--Kết Thúc Phần Hình Ảnh-->

@@ -11,4 +11,4 @@ $query = "insert into users(email,firstName,lastName,userName,password,avatar) v
 connect($query);
 move_uploaded_file($_FILES["avatar"]["tmp_name"], "../image/" . $_FILES["avatar"]["name"]);
 
-header("location:../index.php");
+header("location:../header.php");

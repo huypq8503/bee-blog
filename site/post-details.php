@@ -1,15 +1,8 @@
 <?php
 include "./model/config.php";
-session_start();
-if (empty($_SESSION["id"])) {
-    header("location:../login.php");
-};
-$query = "select * from post";
-$post = getAll($query);
-$query = "select * from category";
-$categoryList = getAll($query);
-// var_dump($_SESSION);
-// die;
+$id = $_GET["id"];
+$query = "select * from post where id=$id";
+$item = getOne($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,39 +109,24 @@ $categoryList = getAll($query);
 
     .post {
         margin-top: 100px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
     }
 
     .thumbnail img {
-        width: 250px;
-        height: 150px;
-        border-radius: 10px;
-        margin-top: 15px;
-    }
-
-    .post-info {
-        display: flex;
-        justify-content: center;
-
-    }
-
-    .desc {
-        margin-left: 20px;
-        width: 300px;
-    }
-
-    .category-list {
+        width: 800px;
+        height: 400px;
+        border-radius: 12px;
         margin-left: 500px;
-        padding: 60px 60px;
     }
 
-    .category-list button {
-        width: 100px;
-        height: 50px;
-        margin-left: 50px;
-        background-color: #e6eba2;
-        border-radius: 50px 50px 50px 50px;
+    .title {
+        text-align: center;
+    }
+
+    .content {
+        text-align: left;
+        width: 800px;
+        margin-top: 50px;
+        margin-left: 400px;
     }
     </style>
 </head>
@@ -161,7 +139,7 @@ $categoryList = getAll($query);
             </div>
             <menu>
                 <ul>
-                    <li><a href="header.php">BLOG</a></li>
+                    <li><a href="index.php">BLOG</a></li>
                     <li><a href="#">PODCAST</a></li>
                     <li><a href="#">ABOUT</a></li>
                     <li><a href="#">SERVICES</a></li>
@@ -203,25 +181,18 @@ $categoryList = getAll($query);
             </section>
 
             <div class="post">
-                <?php foreach ($post as $value) : ?>
-                <a href="./post-details.php?id=<?php echo $value["id"] ?>">
-                    <div class="post-info">
-                        <div class="thumbnail">
-                            <img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
-                        </div>
-                        <div class="desc">
-                            <h3><?php echo $value["title"] ?></h2>
-                                <h4><?php echo $value["sub_title"] ?></h4>
-                        </div>
+                <div class="title">
+                    <h2><?php echo $item["title"] ?></h2>
+                </div>
+                <div class="thumbnail">
+                    <img src="../public/image/<?php echo $item["thumbnail"]; ?>" alt="">
+                </div>
+                <div class="desc">
 
+                    <div class="content">
+                        <h3><?php echo $item["content"] ?></h3>
                     </div>
-                </a>
-                <?php endforeach ?>
-            </div>
-            <div class="category-list">
-                <?php foreach ($categoryList as $value) : ?>
-                <button><?php echo $value["categoryName"] ?></button>
-                <?php endforeach ?>
+                </div>
             </div>
         </main>
     </div>
