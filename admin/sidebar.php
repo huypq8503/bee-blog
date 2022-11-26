@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (empty($_SESSION["id"])) {
+    header("location:../login.php");
+};
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,48 +46,70 @@
                 <li class="menu-links">
                     <a href="./index.php">
                         <i class='bx bx-home icon'></i>
-                        <span class="text nav-text">Trang chủ</span>
+                        <span class="text nav-text">Home</span>
                     </a>
                 </li>
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="./view/post-manager.php">
-                            <i class='bx bx-shopping-bag icon'></i>
-                            <span class="text nav-text">Quản lý post</span>
+                        <a href="./add-new-post.php">
+                            <i class='bx bx-edit-alt icon'></i>
+                            <span class="text nav-text">Add new post</span>
                         </a>
                     </li>
-
                     <li class="nav-link">
-                        <a href="./view/podcast-manager.php">
+                        <a href="./post-manager.php">
+                            <i class='bx bx-poll icon'></i>
+                            <span class="text nav-text">Manager post</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./podcast-manager.php">
                             <i class='bx bx-headphone icon'></i>
-                            <span class="text nav-text">Quản lý podcast</span>
+                            <span class="text nav-text">Add new podcast</span>
                         </a>
                     </li>
-
                     <li class="nav-link">
-                        <a href="./view/category-manager.php">
+                        <a href="./podcast-manager.php">
+                            <i class='bx bx-headphone icon'></i>
+                            <span class="text nav-text">Manager podcast</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./add-new-category.php">
+                            <i class='bx bx-edit icon'></i>
+                            <span class="text nav-text">Add new category</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="./category-manager.php">
                             <i class='bx bx-category icon'></i>
-                            <span class="text nav-text">Quản lý danh mục</span>
+                            <span class="text nav-text">Manager category</span>
                         </a>
                     </li>
-
                     <li class="nav-link">
-                        <a href="./view/user-manager.php">
+                        <a href="./user-manager.php">
+                            <i class='bx bx-user-plus icon'></i>
+                            <span class="text nav-text">Add new users</span>
+                        </a>
+
+                    </li>
+                    <li class="nav-link">
+                        <a href="./user-manager.php">
                             <i class='bx bx-user-circle icon'></i>
-                            <span class="text nav-text">Quản lý tài khoản</span>
+                            <span class="text nav-text">Manager users</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="./view/comment-manager.php">
+                        <a href="./comment-manager.php">
                             <i class='bx bx-comment icon'></i>
-                            <span class="text nav-text">Quản lý bình luận</span>
+                            <span class="text nav-text">Manager comment</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="../view/statistical-show.ph">
+                        <a href="./statistical-show.ph">
                             <i class='bx bx-bar-chart-alt-2 icon'></i>
                             <span class="text nav-text">Thống kê</span>
                         </a>
