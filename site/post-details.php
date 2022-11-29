@@ -66,7 +66,7 @@ $item = getOne($query);
 
     .search_bar {
         margin-top: 10px;
-        margin-left: 500px;
+        margin-left: 700px;
     }
 
     .search_bar-container {
@@ -115,10 +115,15 @@ $item = getOne($query);
         width: 800px;
         height: 400px;
         border-radius: 12px;
-        margin-left: 500px;
+        margin-left: 550px;
     }
 
     .title {
+        text-align: center;
+    }
+
+    .title h1 {
+        font-size: 48px;
         text-align: center;
     }
 
@@ -126,7 +131,8 @@ $item = getOne($query);
         text-align: left;
         width: 800px;
         margin-top: 50px;
-        margin-left: 400px;
+        margin-left: 550px;
+        font-size: 32px;
     }
     </style>
 </head>
@@ -169,7 +175,7 @@ $item = getOne($query);
             </div>
         </header>
         <main>
-            <section class="search_bar">
+            <!-- <section class="search_bar">
 
                 <form class="container search_bar-container" action="">
                     <div>
@@ -178,19 +184,18 @@ $item = getOne($query);
                     </div>
                     <button type="submit">Go</button>
                 </form>
-            </section>
+            </section> -->
 
             <div class="post">
                 <div class="title">
-                    <h2><?php echo $item["title"] ?></h2>
+                    <h1><?php echo $item["title"] ?></h1>
                 </div>
                 <div class="thumbnail">
                     <img src="../public/image/<?php echo $item["thumbnail"]; ?>" alt="">
                 </div>
                 <div class="desc">
-
                     <div class="content">
-                        <h3><?php echo $item["content"] ?></h3>
+                        <p><?php echo $item["content"] ?></p>
                     </div>
                 </div>
             </div>

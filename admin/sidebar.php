@@ -29,7 +29,7 @@ if (empty($_SESSION["id"])) {
         <header>
             <div class="image-text">
                 <span class="image">
-                    <a href="../site/header.php"> <img src="../public/image/logo-bee-blog.png" alt=""></a>
+                    <a href="../site/index.php"> <img src="../public/image/logo-bee-blog.png" alt=""></a>
                 </span>
 
                 <div class="text logo-text">
@@ -94,7 +94,7 @@ if (empty($_SESSION["id"])) {
                         </a>
 
                     </li>
-                    <li class="nav-link">
+                    <li class="nav-link">`
                         <a href="./user-manager.php">
                             <i class='bx bx-user-circle icon'></i>
                             <span class="text nav-text">Manager users</span>

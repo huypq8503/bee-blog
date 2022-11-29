@@ -12,7 +12,7 @@ foreach ($users as $value) {
                 $_SESSION["id"] = $value["id"];
                 $_SESSION["userName"] = $value["userName"];
                 $_SESSION["avatar"] = $value["avatar"];
-                header("location:./site/header.php");
+                header("location:./site/index.php");
             }
         } else {
             echo "Tài khoản không đúng";

@@ -1,7 +1,11 @@
 <?php
-require_once './model/config.php';
+// include "./model/config.php";
+include './header.php';
 $query = "select * from post";
 $post = getAll($query);
+$query1 = "select userID from post";
+$item = getAll($query1);
+
 
 ?>
 <!DOCTYPE html>
@@ -19,7 +23,7 @@ $post = getAll($query);
 <style>
 .search_bar {
     margin-top: 10px;
-    margin-left: 500px;
+    margin-left: 700px;
 }
 
 .search_bar-container {
@@ -59,12 +63,52 @@ $post = getAll($query);
     transition: var(--transition);
     color: var(--color-white);
 }
+
+.post {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 200px;
+}
+
+.thumbnail img {
+    width: 530px;
+    height: 290px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.post-info h2:hover {
+    color: #fbff00;
+}
+
+.post-info h3:hover {
+    color: #a1a334;
+}
+
+.desc {
+    margin-left: 10px;
+    width: 300px;
+}
+
+.category-list {
+    margin-left: 500px;
+    padding: 60px 60px;
+}
+
+.category-list button {
+    width: 100px;
+    height: 50px;
+    margin-left: 50px;
+    background-color: #e6eba2;
+    border-radius: 50px 50px 50px 50px;
+}
 </style>
 
 <body>
     <div class="container">
         <?php
-        include './header.php';
+
         ?>
         <section class="search_bar">
 
@@ -77,7 +121,8 @@ $post = getAll($query);
             </form>
         </section>
 
-        <div class="product">
+
+        <div class="post">
             <?php foreach ($post as $value) : ?>
             <a href="./post-details.php?id=<?php echo $value["id"] ?>">
                 <div class="post-info">
@@ -85,12 +130,17 @@ $post = getAll($query);
                         <img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
                     </div>
                     <div class="desc">
-                        <h3><?php echo $value["title"] ?></h2>
-                            <h4>$<?php echo $value["sub_title"] ?></h4>
+                        <h2><?php echo $value["title"] ?></h2>
+                        <h4><?php echo $value["sub_title"] ?></h4>
                     </div>
 
                 </div>
             </a>
+            <?php endforeach ?>
+        </div>
+        <div class="category-list">
+            <?php foreach ($categoryList as $value) : ?>
+            <button><?php echo $value["categoryName"] ?></button>
             <?php endforeach ?>
         </div>
     </div>
