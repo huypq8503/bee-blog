@@ -20,100 +20,100 @@ $categoryList = getAll($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    @import url(https://fonts.googleapis.com/css?family=Oswald:400);
+        @import url(https://fonts.googleapis.com/css?family=Oswald:400);
 
-    .user-sign img {
-        /* width: 60px;
+        .user-sign img {
+            /* width: 60px;
         height: 60px; */
-        background: none;
-        border: 0.1875em solid #0F1C3F;
-        border-radius: 50%;
-        box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
-        height: 3em;
-        width: 3em;
+            background: none;
+            border: 0.1875em solid #0F1C3F;
+            border-radius: 50%;
+            box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
+            height: 3em;
+            width: 3em;
 
-    }
+        }
 
-    header {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 50px;
-    }
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
 
-    .logo img {
-        width: 150px;
-        height: 150px;
-    }
+        .logo img {
+            width: 150px;
+            height: 150px;
+        }
 
-    li {
-        display: inline-block;
-        padding: 0px 10px;
-    }
+        li {
+            display: inline-block;
+            padding: 0px 10px;
+        }
 
-    a {
-        text-decoration: none;
-        color: black;
-    }
+        a {
+            text-decoration: none;
+            color: black;
+        }
 
-    a:hover {
-        color: #e8cd00;
-    }
+        a:hover {
+            color: #e8cd00;
+        }
 
-    .user button {
-        margin-left: 0px;
-        border-radius: 10px;
-        border: 1px solid black;
-        background-color: wheat;
-        color: #a35be3;
-    }
+        .user button {
+            margin-left: 0px;
+            border-radius: 10px;
+            border: 1px solid black;
+            background-color: wheat;
+            color: #a35be3;
+        }
 
-    .user button:hover {
-        background-color: #e8cd00;
-    }
+        .user button:hover {
+            background-color: #e8cd00;
+        }
 
-    /* 
-    .search_bar {
-        margin-top: 10px;
-        margin-left: 500px;
-    }
 
-    .search_bar-container {
-        position: relative;
-        width: 30rem;
-        background-color: #e6eba2;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        overflow: hidden;
-        padding: 0.6rem 1rem;
-        border-radius: 5px;
-        color: #ce7cf5;
-    }
+        .search_bar {
+            margin-top: 10px;
+            margin-left: 500px;
+        }
 
-    .search_bar-container>div {
-        width: 100%;
-        display: flex;
-        align-items: center;
-    }
+        .search_bar-container {
+            position: relative;
+            width: 30rem;
+            background-color: #e6eba2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: 0.6rem 1rem;
+            border-radius: 5px;
+            color: #ce7cf5;
+        }
 
-    .search_bar input {
-        background-color: transparent;
-        border: none;
-        margin-left: 0.7rem;
-        padding: 0.5rem 0;
-        width: 100%;
-    }
+        .search_bar-container>div {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
 
-    .search_bar button {
-        display: inline-block;
-        width: fit-content;
-        background-color: #e5f516;
-        padding: 0.6rem 1.2rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: var(--transition);
-        color: var(--color-white);
-    } */
+        .search_bar input {
+            background-color: transparent;
+            border: none;
+            margin-left: 0.7rem;
+            padding: 0.5rem 0;
+            width: 100%;
+        }
+
+        .search_bar button {
+            display: inline-block;
+            width: fit-content;
+            background-color: #e5f516;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--color-white);
+        }
     </style>
 </head>
 
@@ -138,7 +138,7 @@ $categoryList = getAll($query);
                 if (isset($_SESSION["email"])) {
                     echo "<div class='user-sign'>";
                     // echo "<a class ='button' href=";
-                    echo "<div class='avatar'><a href='../admin/thongtin.php'><img src='../public/image/";
+                    echo "<div class='avatar'><a href='../admin/hdusser.php'><img src='../public/image/";
                     echo $_SESSION["avatar"];
                     echo "'></a></div>";
                     echo "</div>";
@@ -154,8 +154,7 @@ $categoryList = getAll($query);
 
             </div>
         </header>
-<<<<<<< HEAD
-=======
+        <!-- <<<<<<< HEAD======= -->
         <main>
             <section class="search_bar">
 
@@ -170,27 +169,27 @@ $categoryList = getAll($query);
 
             <div class="post">
                 <?php foreach ($post as $value) : ?>
-                <a href="./post-details.php?id=<?php echo $value["id"] ?>">
-                    <div class="post-info">
-                        <div class="thumbnail">
-<img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
-                        </div>
-                        <div class="desc">
-                            <h3><?php echo $value["title"] ?></h2>
-                                <h4><?php echo $value["sub_title"] ?></h4>
-                        </div>
+                    <a href="./post-details.php?id=<?php echo $value["id"] ?>">
+                        <div class="post-info">
+                            <div class="thumbnail">
+                                <img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
+                            </div>
+                            <div class="desc">
+                                <h3><?php echo $value["title"] ?></h2>
+                                    <h4><?php echo $value["sub_title"] ?></h4>
+                            </div>
 
-                    </div>
-                </a>
+                        </div>
+                    </a>
                 <?php endforeach ?>
             </div>
             <div class="category-list">
                 <?php foreach ($categoryList as $value) : ?>
-                <button><?php echo $value["categoryName"] ?></button>
+                    <button><?php echo $value["categoryName"] ?></button>
                 <?php endforeach ?>
             </div>
         </main>
->>>>>>> c64b2188260e1552372373a2a67d2074243e2242
+        <!-- >>>>>>> c64b2188260e1552372373a2a67d2074243e2242 -->
     </div>
 </body>
 

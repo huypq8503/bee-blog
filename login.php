@@ -12,14 +12,14 @@ foreach ($users as $value) {
                 $_SESSION["id"] = $value["id"];
                 $_SESSION["userName"] = $value["userName"];
                 $_SESSION["avatar"] = $value["avatar"];
-<<<<<<< HEAD
+                // <<<<<<< HEAD
                 header("location:./site/index.php");
-=======
-                $_SESSION["lastName"] = $value["lastName"];
-                $_SESSION["firstName"] = $value["firstName"];
-                $_SESSION["password"] = $value["password"];
-                header("location:./site/header.php");
->>>>>>> c64b2188260e1552372373a2a67d2074243e2242
+                // =======
+                // $_SESSION["lastName"] = $value["lastName"];
+                // $_SESSION["firstName"] = $value["firstName"];
+                // $_SESSION["password"] = $value["password"];
+                // header("location:./site/header.php");
+                // >>>>>>> c64b2188260e1552372373a2a67d2074243e2242
             }
         } else {
             echo "Tài khoản không đúng";
@@ -38,8 +38,7 @@ foreach ($users as $value) {
     <link rel="stylesheet" href="./public/css/login.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -86,3 +85,4 @@ foreach ($users as $value) {
 </body>
 
 </html>
+
