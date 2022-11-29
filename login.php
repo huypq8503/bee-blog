@@ -12,7 +12,14 @@ foreach ($users as $value) {
                 $_SESSION["id"] = $value["id"];
                 $_SESSION["userName"] = $value["userName"];
                 $_SESSION["avatar"] = $value["avatar"];
+<<<<<<< HEAD
                 header("location:./site/index.php");
+=======
+                $_SESSION["lastName"] = $value["lastName"];
+                $_SESSION["firstName"] = $value["firstName"];
+                $_SESSION["password"] = $value["password"];
+                header("location:./site/header.php");
+>>>>>>> c64b2188260e1552372373a2a67d2074243e2242
             }
         } else {
             echo "Tài khoản không đúng";
