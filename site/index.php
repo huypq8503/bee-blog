@@ -1,10 +1,9 @@
 <?php
 // include "./model/config.php";
 include './header.php';
-$query = "select * from post";
+$query = "select * from post
+join users on users.id = post.userID";
 $post = getAll($query);
-$query1 = "select userID from post";
-$item = getAll($query1);
 
 
 ?>

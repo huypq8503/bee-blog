@@ -2,6 +2,7 @@
 require_once './model/config.php';
 $query = "select * from post";
 $post = getAll($query);
+$query = "select * from category where ";
 ?>
 
 
