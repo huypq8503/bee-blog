@@ -26,7 +26,7 @@
         <div class="noi-dung">
             <div class="form">
                 <h2>SIGN UP</h2>
-                <form action="./site/controller/save-register.php.php" method="post" enctype="multipart/form-data">
+                <form action="./site/controller/save-register.php" method="post" enctype="multipart/form-data">
                     <div class="input-form">
                         <span>First Name</span>
                         <input type="text" name="first-name" required>
