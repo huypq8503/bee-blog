@@ -163,7 +163,7 @@ $categoryList = getAll($query);
                 <ul>
                     <li><a href="header.php">BLOG</a></li>
                     <li><a href="#">PODCAST</a></li>
-                    <li><a href="#">ABOUT</a></li>
+                    <li><a href=".././admin/thongtin.php">ABOUT</a></li>
                     <li><a href="#">SERVICES</a></li>
                     <li><a href="#">CONTACT</a></li>
                     <li><a href="../admin/index.php">DASHBOARD</a></li>
@@ -174,9 +174,9 @@ $categoryList = getAll($query);
                 if (isset($_SESSION["email"])) {
                     echo "<div class='user-sign'>";
                     // echo "<a class ='button' href=";
-                    echo "<div class='avatar'><img src='../public/image/";
+                    echo "<div class='avatar'><a href='../admin/thongtin.php'><img src='../public/image/";
                     echo $_SESSION["avatar"];
-                    echo "'></div>";
+                    echo "'></a></div>";
                     echo "</div>";
                     echo "<div class='logout'>";
                     echo "<a href='./controller/logout.php'onclick='return alert('Bạn chắc chắn muốn đăng xuất chứ ?')'> <button>Logout</button>"; //thẻ a điều hướng sang logout.php trong thư mục controller để xử lý việc logout
@@ -207,7 +207,7 @@ $categoryList = getAll($query);
                 <a href="./post-details.php?id=<?php echo $value["id"] ?>">
                     <div class="post-info">
                         <div class="thumbnail">
-                            <img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
+<img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
                         </div>
                         <div class="desc">
                             <h3><?php echo $value["title"] ?></h2>
