@@ -12,6 +12,9 @@ foreach ($users as $value) {
                 $_SESSION["id"] = $value["id"];
                 $_SESSION["userName"] = $value["userName"];
                 $_SESSION["avatar"] = $value["avatar"];
+                $_SESSION["lastName"] = $value["lastName"];
+                $_SESSION["firstName"] = $value["firstName"];
+                $_SESSION["password"] = $value["password"];
                 header("location:./site/header.php");
             }
         } else {
