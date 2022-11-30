@@ -19,162 +19,33 @@ $categoryList = getAll($query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
     @import url(https://fonts.googleapis.com/css?family=Oswald:400);
-
-    .user-sign img {
-        /* width: 60px;
-        height: 60px; */
-        background: none;
-        border: 0.1875em solid #0F1C3F;
-        border-radius: 50%;
-        box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
-        height: 3em;
-        width: 3em;
-
-    }
-
-    header {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 50px;
-    }
-
-    .logo img {
-        width: 150px;
-        height: 150px;
-    }
-
-    li {
-        display: inline-block;
-        padding: 0px 10px;
-    }
-
-    a {
-        text-decoration: none;
-        color: black;
-    }
-
-    a:hover {
-        color: #e8cd00;
-    }
-
-    .user button {
-        margin-left: 0px;
-        border-radius: 10px;
-        border: 1px solid black;
-        background-color: wheat;
-        color: #a35be3;
-    }
-
-    .user button:hover {
-        background-color: #e8cd00;
-    }
-
-    .search_bar {
-        margin-top: 10px;
-        margin-left: 500px;
-    }
-
-    .search_bar-container {
-        position: relative;
-        width: 30rem;
-        background-color: #e6eba2;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        overflow: hidden;
-        padding: 0.6rem 1rem;
-        border-radius: 5px;
-        color: #ce7cf5;
-    }
-
-    .search_bar-container>div {
-        width: 100%;
-        display: flex;
-        align-items: center;
-    }
-
-    .search_bar input {
-        background-color: transparent;
-        border: none;
-        margin-left: 0.7rem;
-        padding: 0.5rem 0;
-        width: 100%;
-    }
-
-    .search_bar button {
-        display: inline-block;
-        width: fit-content;
-        background-color: #e5f516;
-        padding: 0.6rem 1.2rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: var(--transition);
-        color: var(--color-white);
-    }
-
-    .post {
-        margin-top: 100px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .thumbnail img {
-        width: 250px;
-        height: 150px;
-        border-radius: 10px;
-        margin-top: 15px;
-    }
-
-    .post-info {
-        display: flex;
-        justify-content: center;
-
-    }
-
-    .desc {
-        margin-left: 20px;
-        width: 300px;
-    }
-
-    .category-list {
-        margin-left: 500px;
-        padding: 60px 60px;
-    }
-
-    .category-list button {
-        width: 100px;
-        height: 50px;
-        margin-left: 50px;
-        background-color: #e6eba2;
-        border-radius: 50px 50px 50px 50px;
-    }
     </style>
 </head>
-
 <body>
-    <div class="container">
+    <div class="container mx-auto max-w-8xl ">
         <header>
+            <div class="flex justify-between  border-b-2 rounded-lg  mx-10">
             <div class="logo">
-                <img src="../public/image/logo-bee-blog.png" alt="">
+                <img class="w-[100px] h-[100px] rounded-full" src="../public/image/logo-bee-blog.png" alt="">
             </div>
-            <menu>
-                <ul>
-                    <li><a href="header.php">BLOG</a></li>
-                    <li><a href="#">PODCAST</a></li>
-                    <li><a href=".././admin/thongtin.php">ABOUT</a></li>
-                    <li><a href="#">SERVICES</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                    <li><a href="../admin/index.php">DASHBOARD</a></li>
+            <nav class=" my-auto text-xl">
+                <ul class="flex space-x-10 ">
+                    <li class="hover:text-yellow-300 "><a href="header.php"><strong>Home </strong></a></li>
+                    <li><a class="hover:text-yellow-300"  href="#"><strong>Post </strong></a></li>
+                    <li><a class="hover:text-yellow-300" href=".././admin/thongtin.php"><strong>travel</strong></a></li>
+                    <li><a class="hover:text-yellow-300" href="#"><strong>Food </strong></a></li>
                 </ul>
-            </menu>
-            <div class="user">
+            </nav>
+            <div class="user my-auto">
                 <?php //bắt đầu session
                 if (isset($_SESSION["email"])) {
                     echo "<div class='user-sign'>";
                     // echo "<a class ='button' href=";
-                    echo "<div class='avatar'><a href='../admin/thongtin.php'><img src='../public/image/";
+                    echo "<div class='avatar'><a href='../admin/thongtin.php'><img class='rounded-full h-[50px] w-[50px]' src='../public/image/";
                     echo $_SESSION["avatar"];
                     echo "'></a></div>";
                     echo "</div>";
@@ -186,30 +57,32 @@ $categoryList = getAll($query);
                 }
                 // var_dump($_SESSION);
                 // die;
-                ?>
+             ?>
+         </div>  
+         </div>
 
-            </div>
         </header>
         <main>
             <section class="search_bar">
 
-                <form class="container search_bar-container" action="">
-                    <div>
+                <form class="container search_bar-container flex justify-center " action="">
+                    <div class="flex border border-2 rounded-xl border-yellow-400  mt-2">
                         <i class='bx bx-search-alt-2'></i>
-                        <input type="search" name="" id="" placeholder="Search">
+                        <input class="rounded-xl" type="search" name="" id="" placeholder="Search">
+                    <button class="bg-yellow-300 rounded-lg px-5" type="submit">Go</button>
                     </div>
-                    <button type="submit">Go</button>
                 </form>
             </section>
+            <div class="banner  mx-10 mt-10 border rounded-lg"><img class="" src="../public/image/banner3.jpg" alt=""></div>
 
-            <div class="post">
+            <div class="post grid grid-cols-2 gap-4 mx-10 mt-10">
                 <?php foreach ($post as $value) : ?>
                 <a href="./post-details.php?id=<?php echo $value["id"] ?>">
-                    <div class="post-info">
+                    <div class="post-info flex my-5 grid grid-cols-3 gap-8 border border-4 ">
                         <div class="thumbnail">
-<img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
+<img class="w-full h-[200px]" src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
                         </div>
-                        <div class="desc">
+                        <div class="desc col-span-2">
                             <h3><?php echo $value["title"] ?></h2>
                                 <h4><?php echo $value["sub_title"] ?></h4>
                         </div>
@@ -218,12 +91,23 @@ $categoryList = getAll($query);
                 </a>
                 <?php endforeach ?>
             </div>
-            <div class="category-list">
+            <div class="category-list flex justify-center">
                 <?php foreach ($categoryList as $value) : ?>
-                <button><?php echo $value["categoryName"] ?></button>
+                <button class="mx-5 border border-2 rounded-lg bg-yellow-300 px-5 mx-5"><?php echo $value["categoryName"] ?></button>
                 <?php endforeach ?>
             </div>
         </main>
+        <footer class="bg-gray-800 py-10 mx-2 my-5 text-white grid grid-cols-2 rounded-lg">
+            <div class="ml-20">
+        <h2>Thông tin  </h2>
+           <span> Môn học:  Dự án 1 </span> <br>
+           <span>Giáo viêm:  Vũ Anh Tú </span> <br>
+           <span> Các thành viên: <br> Nguyễn Sỹ Đạt , Phạm Quang Huy , Ngyễn Văn Quang, Nguyễn Văn Hoàng , Dương Khắc Tiến <br></span>
+           </div>
+           <div class="text-end mr-20">
+           <span > <a href="" class="mr-20">Liên hệ</a> <br> email: nhom8@fpt.edu.vn <br> Số điện thoại: 03646499xx</span>
+           </div>
+        </footer>
     </div>
 </body>
 
