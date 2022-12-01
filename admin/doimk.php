@@ -19,11 +19,9 @@ if (isset($_POST['btn']) == true) {
     //$users = getOne($query);
     if ($stmt->rowCount() == 0) {
         $loi .= "mật khẩu sai<br>";
-    }
-    if (strlen($newpassword < 6)) {
+    } else if (strlen($newpassword < 6)) {
         $loi .= "mật khẩu quá ngắn";
-    }
-    if ($newpassword != $newpassword_2) {
+    } else if ($newpassword != $newpassword_2) {
         $loi .= "mật khẩu không trùng khớp";
     }
     if ($loi == "") {
@@ -32,6 +30,7 @@ if (isset($_POST['btn']) == true) {
         $stmt->execute([$newpassword]);
         $loi .= "thay đổi mật khẩu thành công";
     }
+    // return false;
 }
 // 
 ?>
