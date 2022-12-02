@@ -27,19 +27,12 @@ $categoryList = getAll($query);
 </head>
 <body>
     <div class="container mx-auto max-w-8xl ">
-        <header>
-            <div class="flex justify-between  border-b-2 rounded-lg  mx-10">
+        <header >
+            <div class="flex justify-between  rounded-lg  mx-10  ">
             <div class="logo">
-                <img class="w-[100px] h-[100px] rounded-full" src="../public/image/logo-bee-blog.png" alt="">
+                <img class="w-[100px] h-[70px] rounded-full" src="../public/image/logo-bee-blog.png" alt="">
             </div>
-            <nav class=" my-auto text-xl">
-                <ul class="flex space-x-10 ">
-                    <li class="hover:text-yellow-300 "><a href="header.php"><strong>Home </strong></a></li>
-                    <li><a class="hover:text-yellow-300"  href="#"><strong>Post </strong></a></li>
-                    <li><a class="hover:text-yellow-300" href=".././admin/thongtin.php"><strong>travel</strong></a></li>
-                    <li><a class="hover:text-yellow-300" href="#"><strong>Food </strong></a></li>
-                </ul>
-            </nav>
+            <div class="logo2"><img class="w-[150px] h-[90px]" src="../public/image/travel.jpg" alt=""></div>
             <div class="user my-auto">
                 <?php //bắt đầu session
                 if (isset($_SESSION["email"])) {
@@ -60,21 +53,28 @@ $categoryList = getAll($query);
              ?>
          </div>  
          </div>
-
+         <nav class=" my-auto text-xl flex justify-center ">
+                <ul class="flex space-x-10 ">
+                    <li class="hover:text-yellow-300 "><a href="header.php"><strong>Home </strong></a></li>
+                    <li><a class="hover:text-yellow-300"  href="#"><strong>Post </strong></a></li>
+                    <li><a class="hover:text-yellow-300" href=".././admin/thongtin.php"><strong>travel</strong></a></li>
+                    <li><a class="hover:text-yellow-300" href="#"><strong>Food </strong></a></li>
+                </ul>
+            </nav>
+         <div class="banner flex justify-center h-[500px] w-[1550px] mt-5  rounded-lg"><img class="h-[300px  w-[2000px]" src="../public/image/banner3.jpg" alt=""></div>
         </header>
-        <main>
+        <main class="">
+         
             <section class="search_bar">
 
-                <form class="container search_bar-container flex justify-center " action="">
-                    <div class="flex border border-2 rounded-xl border-yellow-400  mt-2">
-                        <i class='bx bx-search-alt-2'></i>
-                        <input class="rounded-xl" type="search" name="" id="" placeholder="Search">
-                    <button class="bg-yellow-300 rounded-lg px-5" type="submit">Go</button>
-                    </div>
-                </form>
-            </section>
-            <div class="banner  mx-10 mt-10 border rounded-lg"><img class="" src="../public/image/banner3.jpg" alt=""></div>
-
+<form class="container search_bar-container flex justify-center " action="">
+    <div class="flex border border-2 rounded-xl border-yellow-400  mt-2">
+        <i class='bx bx-search-alt-2'></i>
+        <input class="rounded-xl" type="search" name="" id="" placeholder="Search">
+    <button class="bg-yellow-300 rounded-lg px-5" type="submit">Go</button>
+    </div>
+</form>
+</section>
             <div class="post grid grid-cols-2 gap-4 mx-10 mt-10">
                 <?php foreach ($post as $value) : ?>
                 <a href="./post-details.php?id=<?php echo $value["id"] ?>">
