@@ -172,7 +172,7 @@ $categoryList = getAll($query);
                     <a href="./post-details.php?id=<?php echo $value["id"] ?>">
                         <div class="post-info">
                             <div class="thumbnail">
-                                <img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
+                                <img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="" width="100px" height="100%">
                             </div>
                             <div class="desc">
                                 <h3><?php echo $value["title"] ?></h2>
