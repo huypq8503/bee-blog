@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./public/css/login.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 </head>
 
@@ -17,7 +18,8 @@
     <section>
         <!--Bắt Đầu Phần Hình Ảnh-->
         <div class="img-bg">
-            <img src="https://vcdn1-thethao.vnecdn.net/2022/11/20/a-6498-1668903333.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=hlY6wHQOx_XlwxW4xSKwAQ" alt="Hình Ảnh Minh Họa">
+            <img src="https://vcdn1-thethao.vnecdn.net/2022/11/20/a-6498-1668903333.jpg?w=680&h=0&q=100&dpr=1&fit=crop&s=hlY6wHQOx_XlwxW4xSKwAQ"
+                alt="Hình Ảnh Minh Họa">
         </div>
         <!--Kết Thúc Phần Hình Ảnh-->
         <!--Bắt Đầu Phần Nội Dung-->
@@ -69,7 +71,7 @@
             </div>
         </div>
         <!--Kết Thúc Phần Nội Dung-->
-    </section>
+    </section>Ư
 
 </body>
 

@@ -1,0 +1,147 @@
+<?php
+include './navbar.php';
+$query = "select * from category";
+$category = getAll($query);
+$id = $_GET["id"];
+$query = "select * from post where id=$id";
+$item = getOne($query);
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog : Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" href="../public/css/header.css"> -->
+    <link rel="stylesheet" href="../public/css/editor.css">
+    <script src="tinymce/tinymce.min.js"></script>
+    <script>
+    tinymce.init({
+        selector: '#myTextarea',
+        placeholder: 'Start writing here...',
+        plugins: 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons',
+        menubar: 'file edit view insert format tools table help',
+        toolbar: 'undo redo | bold italic underline strikethrough | fontfamily fontsize blocks | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+        toolbar_sticky: true,
+        autosave_ask_before_unload: true,
+        autosave_interval: '30s',
+        autosave_prefix: '{path}{query}-{id}-',
+        autosave_restore_when_empty: false,
+        autosave_retention: '2m',
+        image_advtab: true,
+        link_list: [{
+                title: 'My page 1',
+                value: 'https://www.codexworld.com'
+            },
+            {
+                title: 'My page 2',
+                value: 'http://www.codexqa.com'
+            }
+        ],
+        image_list: [{
+                title: 'My page 1',
+                value: 'https://www.codexworld.com'
+            },
+            {
+                title: 'My page 2',
+                value: 'http://www.codexqa.com'
+            }
+        ],
+        image_class_list: [{
+                title: 'None',
+                value: ''
+            },
+            {
+                title: 'Some class',
+                value: 'class-name'
+            }
+        ],
+        importcss_append: true,
+        file_picker_callback: (callback, value, meta) => {
+            /* Provide file and text for the link dialog */
+            if (meta.filetype === 'file') {
+                callback('https://www.google.com/logos/google.jpg', {
+                    text: 'My text'
+                });
+            }
+
+            /* Provide image and alt text for the image dialog */
+            if (meta.filetype === 'image') {
+                callback('https://www.google.com/logos/google.jpg', {
+                    alt: 'My alt text'
+                });
+            }
+
+            /* Provide alternative source and posted for the media dialog */
+            if (meta.filetype === 'media') {
+                callback('movie.mp4', {
+                    source2: 'alt.ogg',
+                    poster: 'https://www.google.com/logos/google.jpg'
+                });
+            }
+        },
+        templates: [{
+                title: 'New Table',
+                description: 'creates a new table',
+                content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>'
+            },
+            {
+                title: 'Starting my story',
+                description: 'A cure for writers block',
+                content: 'Once upon a time...'
+            },
+            {
+                title: 'New list with dates',
+                description: 'New List with dates',
+                content: '<div class="mceTmpl"><span class="cdate">cdate</span><br><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>'
+            }
+        ],
+        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+        height: 400,
+        image_caption: true,
+        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+        noneditable_class: 'mceNonEditable',
+        toolbar_mode: 'sliding',
+        contextmenu: 'link image table',
+        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+    });
+    </script>
+</head>
+
+<body>
+    <form action="./controller/save-update-post.php" method="post" enctype="multipart/form-data">
+        <div class="banner">
+            <input value="<?php echo $item['thumbnail'] ?>" type="file" name="thumbnail" id="banner-upload">
+            <label for="banner-upload" class="banner-upload-btn"><i class='bx bx-upload'></i></label>
+        </div>
+        <div class="blog">
+            <input type="text" name="postId" value="<?php echo $item["id"] ?>" hidden>
+            <textarea type="text" name="title" class="title"
+                placeholder="Blog title..."><?php echo $item['title'] ?></textarea>
+            <textarea type="text" name="sub-title" class="title"
+                placeholder="Blog sub title..."><?php echo $item['sub_title'] ?></textarea>
+            <select name="post-category" id="">
+                <?php foreach ($category as $value) : ?>
+                <option value="<?php echo $value["id"] ?>"><?php echo $value["categoryName"] ?></option>
+                <?php endforeach ?>
+            </select>
+            <!-- <textarea id="myTextarea" name="content" type="iframe" class="article"
+                placeholder="Start writing here..."></textarea> -->
+            <textarea name="editor_input" id="myTextarea"><?php echo $item['content'] ?></textarea>
+        </div>
+        </div>
+
+        <div class="blog-options">
+            <button type="submit" name="add-post" class="btn dark publish-btn">Update</button>
+        </div>
+    </form>
+</body>
+
+
+</html>

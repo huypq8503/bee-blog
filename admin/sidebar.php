@@ -1,7 +1,12 @@
 <?php
 session_start();
+// echo $_SESSION["admin"];
+// die();
 if (empty($_SESSION["id"])) {
     header("location:../login.php");
+}
+if ($_SESSION["admin"] == 1); {
+    header("location:./index.php");
 };
 ?>
 <!DOCTYPE html>
@@ -29,7 +34,7 @@ if (empty($_SESSION["id"])) {
         <header>
             <div class="image-text">
                 <span class="image">
-                    <a href="../site/index.php"> <img src="../public/image/logo-bee-blog.png" alt=""></a>
+                    <a href="../site/header.php"> <img src="../public/image/logo-bee-blog.png" alt=""></a>
                 </span>
 
                 <div class="text logo-text">
@@ -49,7 +54,7 @@ if (empty($_SESSION["id"])) {
                         <span class="text nav-text">Home</span>
                     </a>
                 </li>
-
+                <!-- 
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="./add-new-post.php">
@@ -62,8 +67,8 @@ if (empty($_SESSION["id"])) {
                             <i class='bx bx-poll icon'></i>
                             <span class="text nav-text">Manager post</span>
                         </a>
-                    </li>
-                    <!-- <li class="nav-link">
+                    </li> -->
+                <!-- <li class="nav-link">
                         <a href="./podcast-manager.php">
                             <i class='bx bx-headphone icon'></i>
                             <span class="text nav-text">Add new podcast</span>
@@ -75,59 +80,59 @@ if (empty($_SESSION["id"])) {
                             <span class="text nav-text">Manager podcast</span>
                         </a>
                     </li> -->
-                    <li class="nav-link">
-                        <a href="./add-new-category.php">
-                            <i class='bx bx-edit icon'></i>
-                            <span class="text nav-text">Add new category</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="./category-manager.php">
-                            <i class='bx bx-category icon'></i>
-                            <span class="text nav-text">Manager category</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="./user-manager.php">
-                            <i class='bx bx-user-plus icon'></i>
-                            <span class="text nav-text">Add new users</span>
-                        </a>
+                <li class="nav-link">
+                    <a href="./add-new-category.php">
+                        <i class='bx bx-edit icon'></i>
+                        <span class="text nav-text">Add new category</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="./category-manager.php">
+                        <i class='bx bx-category icon'></i>
+                        <span class="text nav-text">Manager category</span>
+                    </a>
+                </li>
+                <li class="nav-link">
+                    <a href="./user-manager.php">
+                        <i class='bx bx-user-plus icon'></i>
+                        <span class="text nav-text">Add new users</span>
+                    </a>
 
-                    </li>
-                    <li class="nav-link">`
-                        <a href="./user-manager.php">
-                            <i class='bx bx-user-circle icon'></i>
-                            <span class="text nav-text">Manager users</span>
-                        </a>
-                    </li>
+                </li>
+                <li class="nav-link">
+                    <a href="./user-manager.php">
+                        <i class='bx bx-user-circle icon'></i>
+                        <span class="text nav-text">Manager users</span>
+                    </a>
+                </li>
 
-                    <li class="nav-link">
-                        <a href="./comment-manager.php">
-                            <i class='bx bx-comment icon'></i>
-                            <span class="text nav-text">Manager comment</span>
-                        </a>
-                    </li>
-                    <!-- 
+                <li class="nav-link">
+                    <a href="./comment-manager.php">
+                        <i class='bx bx-comment icon'></i>
+                        <span class="text nav-text">Manager comment</span>
+                    </a>
+                </li>
+                <!-- 
                     <li class="nav-link">
                         <a href="./statistical-show.ph">
                             <i class='bx bx-bar-chart-alt-2 icon'></i>
                             <span class="text nav-text">Thống kê</span>
                         </a>
                     </li> -->
-                    <div class="bottom-content">
-                        <li class="mode">
-                            <div class="sun-moon">
-                                <i class='bx bx-moon icon moon'></i>
-                                <i class='bx bx-sun icon sun'></i>
-                            </div>
-                            <span class="mode-text text">Dark mode</span>
+                <div class="bottom-content">
+                    <li class="mode">
+                        <div class="sun-moon">
+                            <i class='bx bx-moon icon moon'></i>
+                            <i class='bx bx-sun icon sun'></i>
+                        </div>
+                        <span class="mode-text text">Dark mode</span>
 
-                            <div class="toggle-switch">
-                                <span class="switch"></span>
-                            </div>
-                        </li>
+                        <div class="toggle-switch">
+                            <span class="switch"></span>
+                        </div>
+                    </li>
 
-                    </div>
+                </div>
             </div>
 
     </nav>

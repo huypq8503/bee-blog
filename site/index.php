@@ -1,12 +1,9 @@
 <?php
-// include "./model/config.php";
-include './header.php';
-$query = "select * from post
-join users on users.id = post.userID";
+include './navbar.php';
+$query = "SELECT category.categoryName, post.id, post.content, post.thumbnail, post.title, post.sub_title, post.categoryID, post.userID FROM post JOIN category on post.categoryID = category.id";
 $post = getAll($query);
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,133 +12,48 @@ $post = getAll($query);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../public/css/index.css">
-
-</head>
-<style>
-    .search_bar {
-        margin-top: 10px;
-        margin-left: 700px;
-    }
-
-    .search_bar-container {
-        position: relative;
-        width: 30rem;
-        background-color: #e6eba2;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        overflow: hidden;
-        padding: 0.6rem 1rem;
-        border-radius: 5px;
-        color: #ce7cf5;
-    }
-
-    .search_bar-container>div {
-        width: 100%;
-        display: flex;
-        align-items: center;
-    }
-
-    .search_bar input {
-        background-color: transparent;
-        border: none;
-        margin-left: 0.7rem;
-        padding: 0.5rem 0;
-        width: 100%;
-    }
-
-    .search_bar button {
-        display: inline-block;
-        width: fit-content;
-        background-color: #e5f516;
-        padding: 0.6rem 1.2rem;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: var(--transition);
-        color: var(--color-white);
-    }
-
-    .post {
-        margin-top: 100px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-left: 200px;
-    }
-
-    .thumbnail img {
-        width: 530px;
-        height: 290px;
+    <link rel="stylesheet" href="../public/css/header.css">
+    <style>
+    .blogs-section .btn {
+        padding: 10px 20px;
         border-radius: 10px;
-        margin-top: 15px;
+        background: rgba(255, 255, 255, 0.7);
+        color: #000;
+        text-decoration: none;
+        text-transform: capitalize;
     }
 
-    .post-info h2:hover {
-        color: #fbff00;
+    .blogs-section .btn:hover {
+        color: rgb(255, 251, 0);
     }
-
-    .post-info h3:hover {
-        color: #a1a334;
-    }
-
-    .desc {
-        margin-left: 10px;
-        width: 300px;
-    }
-
-    .category-list {
-        margin-left: 500px;
-        padding: 60px 60px;
-    }
-
-    .category-list button {
-        width: 100px;
-        height: 50px;
-        margin-left: 50px;
-        background-color: #e6eba2;
-        border-radius: 50px 50px 50px 50px;
-    }
-</style>
+    </style>
+</head>
 
 <body>
     <div class="container">
-        <?php
+        <header class="header">
+            <div class="content">
+                <h1 class="heading">
+                    <span class="small">welcome in the world of</span>
+                    <span class="no-fill">Bee Blog</span>
+                </h1>
+                <a href="./add-new-post.php" class="btn">write a blog</a>
+            </div>
+        </header>
 
-        ?>
-        <section class="search_bar">
-
-            <form class="container search_bar-container" action="">
-                <div>
-                    <i class='bx bx-search-alt-2'></i>
-                    <input type="search" name="" id="" placeholder="Search">
-                </div>
-                <button type="submit">Go</button>
-            </form>
-        </section>
-
-
-        <div class="post">
+        <!-- blog section -->
+        <section class="blogs-section">
             <?php foreach ($post as $value) : ?>
-                <a href="./post-details.php?id=<?php echo $value["id"] ?>">
-                    <div class="post-info">
-                        <div class="thumbnail">
-                            <img src="../public/image/<?php echo $value["thumbnail"]; ?>" alt="">
-                        </div>
-                        <div class="desc">
-                            <h2><?php echo $value["title"] ?></h2>
-                            <h4><?php echo $value["sub_title"] ?></h4>
-                        </div>
-
-                    </div>
-                </a>
+            <div class="blog-card">
+                <img src="../public/image/<?php echo $value["thumbnail"] ?>" class="blog-image" alt="">
+                <h1 class="blog-title"><?php echo $value["title"] ?></h1>
+                <p class="blog-overview"><?php echo $value["sub_title"] ?></p>
+                <a href="./post-detail.php?id=<?php echo $value["id"] ?>" class="btn dark">read</a>
+                <a style="border: 1px solid black;" href="./category.php?id=<?php echo $value["categoryID"] ?>"
+                    class="btn"><?php echo $value["categoryName"] ?></a>
+            </div>
             <?php endforeach ?>
-        </div>
-        <div class="category-list">
-            <?php foreach ($categoryList as $value) : ?>
-                <button><?php echo $value["categoryName"] ?></button>
-            <?php endforeach ?>
-        </div>
+        </section>
     </div>
 </body>
 
