@@ -1,6 +1,6 @@
 <?php
 include './navbar.php';
-$query = "SELECT category.categoryName, post.id, post.content, post.thumbnail, post.title, post.sub_title, post.categoryID, post.userID FROM post JOIN category on post.categoryID = category.id";
+$query = "SELECT category.categoryName, post.id, post.content, post.thumbnail, post.title, post.sub_title, post.categoryID, post.userID FROM post JOIN category on post.categoryID = category.id ORDER BY id DESC";
 $post = getAll($query);
 ?>
 
@@ -40,7 +40,7 @@ $post = getAll($query);
                 <a href="./add-new-post.php" class="btn">write a blog</a>
             </div>
         </header>
-
+        <h1 style="text-align: center; margin-top: 50px;">HOME PAGE</h1>
         <!-- blog section -->
         <section class="blogs-section">
             <?php foreach ($post as $value) : ?>
