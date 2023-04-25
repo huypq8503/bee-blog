@@ -10,6 +10,8 @@ include './navbar.php';
     <link rel="stylesheet" href="../public/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
     <title>Coming Soon</title>
+    <style>
+    </style>
 </head>
 
 <body>

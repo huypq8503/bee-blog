@@ -17,7 +17,7 @@ $item = getOne($query);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- <link rel="stylesheet" href="../public/css/header.css"> -->
+    <link rel="stylesheet" href="../public/css/header.css">
     <link rel="stylesheet" href="../public/css/editor.css">
     <script src="tinymce/tinymce.min.js"></script>
     <script>
@@ -112,21 +112,52 @@ $item = getOne($query);
         content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
     });
     </script>
+    <style>
+    .btn {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.7);
+        color: #000;
+        text-decoration: none;
+        text-transform: capitalize;
+        border: 1px solid #000;
+    }
+
+    .btn.dark {
+        background: #1b1b1b;
+        color: #fff;
+    }
+
+    form {
+        height: 2000px;
+    }
+
+    .banner {
+        width: 100%;
+        height: 1500px;
+    }
+
+    .banner img {
+        width: 100%;
+        height: 1500px;
+    }
+    </style>
 </head>
 
 <body>
     <form action="./controller/save-update-post.php" method="post" enctype="multipart/form-data">
         <div class="banner">
-            <input value="<?php echo $item['thumbnail'] ?>" type="file" name="thumbnail" id="banner-upload">
+            <img id="img" src="../public/image/<?php echo $item['thumbnail'] ?>" alt="Preview">
+            <input value="<?php echo $item['thumbnail'] ?>" type="file" name="thumbnail" id="banner-upload" hidden>
             <label for="banner-upload" class="banner-upload-btn"><i class='bx bx-upload'></i></label>
         </div>
         <div class="blog">
             <input type="text" name="postId" value="<?php echo $item["id"] ?>" hidden>
             <textarea type="text" name="title" class="title"
                 placeholder="Blog title..."><?php echo $item['title'] ?></textarea>
-            <textarea type="text" name="sub-title" class="title"
+            <textarea style="font-size: 40px;" type="text" name="sub-title" class="title"
                 placeholder="Blog sub title..."><?php echo $item['sub_title'] ?></textarea>
-            <select name="post-category" id="">
+            <select style="font-size: 25px; margin-bottom: 50px;" name="post-category" id="">
                 <?php foreach ($category as $value) : ?>
                 <option value="<?php echo $value["id"] ?>"><?php echo $value["categoryName"] ?></option>
                 <?php endforeach ?>
@@ -141,6 +172,15 @@ $item = getOne($query);
             <button type="submit" name="add-post" class="btn dark publish-btn">Update</button>
         </div>
     </form>
+    <script type="text/javascript">
+    const fileImg = document.getElementById("banner-upload");
+    fileImg.onchange = evt => {
+        const [file] = fileImg.files;
+        if (file) {
+            img.src = URL.createObjectURL(file);
+        }
+    }
+    </script>
 </body>
 
 

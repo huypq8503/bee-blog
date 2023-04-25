@@ -3,7 +3,7 @@ include './navbar.php';
 $id = $_GET["id"];
 $query3 = "SELECT users.avatar, users.userName FROM post JOIN users ON users.id = post.userID WHERE userID = $id";
 $author = getOne($query3);
-$query = "SELECT category.categoryName, post.id, post.content, post.thumbnail, post.title, post.sub_title, post.categoryID, post.userID FROM post JOIN category on post.categoryID = category.id";
+$query = "SELECT category.categoryName, post.id, post.content, post.thumbnail, post.title, post.sub_title, post.categoryID, post.userID FROM post JOIN category on post.categoryID = category.id where userID = $id";
 $post = getAll($query);
 ?>
 
@@ -60,6 +60,8 @@ $post = getAll($query);
                 <a style="border: 1px solid black;" href="./category.php?id=<?php echo $value["categoryID"] ?>"
                     class="btn light"><?php echo $value["categoryName"] ?></a>
                 <a href="./update-post.php?id=<?php echo $value["id"] ?>" class="btn abstract">Update</a>
+                <a href="./controller/delete-post.php?id=<?php echo $value["id"] ?>" class="btn abstract"
+                    onclick="return confirm(('Are you sure you want to delete this post?'))">Remove</a>
             </div>
             <?php endforeach ?>
         </section>

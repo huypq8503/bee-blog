@@ -1,9 +1,16 @@
 <?php
 include './navbar.php';
+session_start();
 $id = $_GET["id"];
+$myID = $_SESSION["id"];
+// if ($id != $myID) {
+//     header("location:./personal-page.php");
+// } else {
+//     header("location:./my-personal-page.php");
+// };
 $query3 = "SELECT users.avatar, users.userName FROM post JOIN users ON users.id = post.userID WHERE userID = $id";
 $author = getOne($query3);
-$query = "SELECT category.categoryName, post.id, post.content, post.thumbnail, post.title, post.sub_title, post.categoryID, post.userID FROM post JOIN category on post.categoryID = category.id";
+$query = "SELECT category.categoryName, post.id, post.content, post.thumbnail, post.title, post.sub_title, post.categoryID, post.userID FROM post JOIN category on post.categoryID = category.id where userID = $id";
 $post = getAll($query);
 ?>
 

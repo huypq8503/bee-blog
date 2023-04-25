@@ -27,18 +27,39 @@ $so_cmt = getAll($query4);
     <title>Document</title>
     <link rel="stylesheet" href="../public/css/post-detail.php">
     <link rel="stylesheet" href="../public/css/editor.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style>
     .show-comment {
         width: 100%;
+        height: 170px;
+        border: 1px solid blue;
         border-radius: 10px;
-        background: rgba(230, 234, 241, 1);
-        padding: 10px;
-        margin-top: 25px;
+        margin-top: 50px;
     }
 
-    .comment-user {
-        display: flex;
-        justify-content: center;
+    .user-comment {
+        width: 100%;
+        height: 70px;
+        border-radius: 10px 10px 0px 0px;
+        background: rgba(230, 234, 241, 1);
+        padding: 10px;
+        border: 1px solid blue;
+        font-size: 18px;
+    }
+
+    .banner {
+        width: 100%;
+        height: 1500px;
+    }
+
+    .banner img {
+        width: 100%;
+        height: 1500px;
+    }
+
+    .blog {
+        height: 2000px;
     }
     </style>
 </head>
@@ -63,43 +84,31 @@ $so_cmt = getAll($query4);
             </div>
             <div class="article">
                 <p><?php echo $item["content"] ?></p>
-                <class="comment">
-                    <div class="number-comment">
-                        <?php foreach ($so_cmt as $value) : ?>
-                        <h3>Bình luận( <?php echo $value["So_luong"] ?> )</h3>
-                        <?php endforeach ?>
+
+            </div>
+            <div class="comment">
+                <?php foreach ($so_cmt as $value) : ?>
+                <h2 style="margin-bottom: 30px;">Comment (<?php echo $value["So_luong"] ?>)</h2>
+                <?php endforeach ?>
+                <div class="writing-comment">
+                    <form action="./controller/save-comment.php?id=<?php echo $id ?>" method="POST">
+                        <textarea name="cmt" id="" cols="180" rows="10" placeholder="Enter Comment"></textarea>
+                        <button id="submit" type="submit" style="font-size:20px; padding:8px">Post Comment</button>
+                    </form>
+                </div>
+                <?php foreach ($comments as $value) : ?>
+                <div class="show-comment">
+                    <div class="user-comment">
+                        <p>By <b><?php echo $value["userName"] ?></b></p>
+                        <span><?php echo $value["date"] ?></span>
                     </div>
-
-
-                    <?php foreach ($comments as $value) : ?>
-                    <div class="show-comment">
-                        <div class="comment-user">
-                            <div class="comment-img">
-                                <img style="border-radius: 50%;width: 50px;height: 50px ;"
-                                    src="../public/image/<?php echo $value["avatar"] ?>" alt="">
-                            </div>
-                            <div class="comment-text">
-                                <p style="font-size: 24px;"><?php echo $value["userName"] ?></p>
-                                <p style="font-size: 18px; "><?php echo $value["date"] ?></p>
-                            </div>
-                        </div>
-
-                        <span><?php echo $value["content"] ?></span>
+                    <div class="content-comment">
+                        <p style="padding-left: 10px;"><?php echo $value["content"] ?></p>
                     </div>
-                    <?php endforeach ?>
-                    <div class="writing-comment">
-                        <form action="./controller/save-comment.php?id=<?php echo $id ?>" method="POST">
-                            <label for="" style="font-size:20px ; font-weight: 600;">Viết bình luận của bạn</label> <br>
-                            <textarea
-                                style="padding: 20px; border: 2px dashed black; border-radius: 10px; margin-top: 10px; font-size: 20px;"
-                                name="cmt" id="" cols="70" rows="8"></textarea>
-                            <button id="submit" type="submit" style="font-size:20px; padding:8px">Gửi</button>
-                        </form>
-
-                    </div>
+                </div>
+                <?php endforeach ?>
             </div>
         </div>
-    </div>
     </div>
 
     </div>
